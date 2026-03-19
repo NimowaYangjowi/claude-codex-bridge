@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/track-modified-file.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/remind-uncommitted.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/codex-verify.sh",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/stop/cleanup-verify-state.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
