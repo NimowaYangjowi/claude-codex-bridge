@@ -52,7 +52,6 @@ PROMPT_HOOKS=(
 # Stop hooks (run at session end)
 STOP_HOOKS=(
   "remind-uncommitted.sh"
-  "codex-verify.sh"
   "stop/cleanup-verify-state.sh"
   # Add your project-specific stop hooks here, e.g.:
   # "stop-check.sh"

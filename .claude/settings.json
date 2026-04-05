@@ -23,11 +23,6 @@
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/codex-verify.sh",
-            "timeout": 5
-          },
-          {
-            "type": "command",
             "command": "bash .claude/hooks/stop/cleanup-verify-state.sh",
             "timeout": 5
           }

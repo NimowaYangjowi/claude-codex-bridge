@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/hooks/session_delta.py\" capture-baseline",
+            "timeout": 15,
+            "statusMessage": "Capturing session baseline"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/hooks/session_delta.py\" stop-hook",
+            "timeout": 60,
+            "statusMessage": "Committing session-only changes"
+          }
+        ]
+      }
+    ]
+  }
+}
